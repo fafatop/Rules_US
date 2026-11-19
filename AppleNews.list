@@ -1,0 +1,7 @@
+DOMAIN-SUFFIX,news-events.apple.com
+DOMAIN-SUFFIX,news-edge.apple.com
+DOMAIN-SUFFIX,news.apple-dns.net
+DOMAIN-SUFFIX,apple.news
+DOMAIN-SUFFIX,news.iadsdk.apple.com
+USER-AGENT,AppleNews*
+USER-AGENT,com.apple.news*
