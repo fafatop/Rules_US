@@ -7,9 +7,8 @@
 | 文件 | 策略 | 作用 |
 | --- | --- | --- |
 | `AppleAI.list` | `PROXY` | Apple Intelligence、Private Cloud Compute 和 Siri |
-| `AppleTV_DualSubs.list` | `PROXY` | Apple TV 接口、DualSubs 相关接口及视频 CDN |
-| `AppleNews.list` | `PROXY` | Apple News |
-| `Apple_Domain_IP.list` | `DIRECT` | 除 AI、Apple TV 和 News 外的普通 Apple 域名与 IP |
+| `Apple_PROXY.list` | `PROXY` | Apple TV、DualSubs、视频 CDN 和 Apple News |
+| `Apple_DIRECT.list` | `DIRECT` | 除 AI、Apple TV 和 News 外的普通 Apple 域名与 IP |
 | `PreRepair_DIRECT.list` | `DIRECT` | 在广告规则前放行被误杀的直连项目 |
 | `PreRepair_PROXY.list` | `PROXY` | 在广告规则前放行需要代理的项目 |
 | `PreRepair_REJECT.list` | `REJECT` | 补充拦截分析和日志请求 |
@@ -20,11 +19,12 @@
 
 以下转换规则均保留原项目出处：
 
-- `Apple_Domain_IP.list`：[Accademia/Additional_Rule_For_Clash - Apple](https://github.com/Accademia/Additional_Rule_For_Clash/tree/main/Apple)
+- `Apple_DIRECT.list`：[Accademia/Additional_Rule_For_Clash - Apple](https://github.com/Accademia/Additional_Rule_For_Clash/tree/main/Apple)
 - `PreRepair_*.list`：[Accademia/Additional_Rule_For_Clash - PreRepairEasyPrivacy](https://github.com/Accademia/Additional_Rule_For_Clash/tree/main/PreRepairEasyPrivacy)
 - `GeositeCN.list`：[Accademia/Additional_Rule_For_Clash - GeositeCN](https://github.com/Accademia/Additional_Rule_For_Clash/tree/main/GeositeCN)
 - Apple TV 双语字幕分流用于配合 [DualSubs Universal](https://dualsubs.github.io/guide/universal) 和 [NSRingo TV](https://github.com/NSRingo/TV)。
-- `AppleAI.list`、`AppleTV_DualSubs.list`、`AppleNews.list` 和 `DomesticApps.list` 是针对本配置整理的 Shadowrocket 分流规则。
+- `AppleAI.list`、`Apple_PROXY.list` 和 `DomesticApps.list` 是针对本配置整理的 Shadowrocket 分流规则。
+- `Apple_DIRECT.list` 已去除与 `AppleAI.list` 完全重复的 3 条 PCC 域名；具体 Apple TV 和 News 代理规则必须排在普通 Apple 直连规则之前。
 
 主配置仍直接引用以下上游 Shadowrocket 规则，不在本仓库重复复制：
 
@@ -43,17 +43,15 @@ RULE-SET,https://raw.githubusercontent.com/fafatop/Rules_US/main/AppleAI.list,PR
 规则顺序应保持为：
 
 1. Apple Intelligence
-2. Apple TV / DualSubs
-3. Apple News
-4. Apple Domain + IP
-5. LAN
-6. 广告误杀修复：`DIRECT`、`PROXY`、`REJECT`
-7. AdvertisingLite
-8. 明确国内 App
-9. 修正版 GeositeCN
-10. Proxy
-11. `GEOIP,CN`
-12. `FINAL,PROXY`
+2. Apple：先 `Apple_PROXY`，再 `Apple_DIRECT`
+3. LAN
+4. 广告误杀修复：`DIRECT`、`PROXY`、`REJECT`
+5. AdvertisingLite
+6. 明确国内 App
+7. 修正版 GeositeCN
+8. Proxy
+9. `GEOIP,CN`
+10. `FINAL,PROXY`
 
 广告误杀修复必须放在 AdvertisingLite 前面；Apple Intelligence、Apple TV 和 Apple News 必须放在普通 Apple 规则前面。
 
