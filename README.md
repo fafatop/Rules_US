@@ -1,5 +1,7 @@
 # Rules_US
 
+设备：港版iPhone17 Pro Max
+账号：美区
 面向美区/外版 iPhone 的 Shadowrocket 规则集，主要用于 Apple Intelligence、Claude、Apple TV 双语字幕、Apple News、普通 Apple 服务、国内 App 分流和广告误杀修复。
 
 ## 仓库文件
