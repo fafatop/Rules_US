@@ -5,7 +5,9 @@ DOMAIN,sequoia.app.apple.com
 DOMAIN-SUFFIX,smoot.apple.com
 DOMAIN,gspe1-ssl.ls.apple.com
 DOMAIN-SUFFIX,apple-relay.apple.com
+DOMAIN,apple-relay.mask.apple-dns.net
 DOMAIN-SUFFIX,apple-relay.cloudflare.com
 DOMAIN-SUFFIX,apple-relay.fastly-edge.com
 DOMAIN-SUFFIX,apple-relay.akamaized.net
 DOMAIN-SUFFIX,cp4.cloudflare.com
+
