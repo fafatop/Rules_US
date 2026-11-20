@@ -56,4 +56,3 @@ RULE-SET,https://raw.githubusercontent.com/fafatop/Rules_US/main/AppleAI.list,PR
 广告误杀修复必须放在 AdvertisingLite 前面；Apple Intelligence、Apple TV 和 Apple News 必须放在普通 Apple 规则前面。
 
 主配置 `Rules_US.conf` 暂不发布到本仓库。
-
