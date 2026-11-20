@@ -11,7 +11,7 @@
 | `Apple_DIRECT.list` | `DIRECT` | 除 AI、Apple TV 和 News 外的普通 Apple 域名与 IP |
 | `PreRepair_DIRECT.list` | `DIRECT` | 在广告规则前放行被误杀的直连项目 |
 | `PreRepair_PROXY.list` | `PROXY` | 在广告规则前放行需要代理的项目 |
-| `PreRepair_REJECT.list` | `REJECT` | 补充拦截分析和日志请求 |
+| `PreRepair_REJECT.list` | `REJECT-DROP` | 补充拦截分析和日志请求，避免部分 App 反复弹窗 |
 | `DomesticApps.list` | `DIRECT` | 常用中国大陆 App 的明确直连规则 |
 | `GeositeCN.list` | `DIRECT` | 作者修正版 GeositeCN 的 Shadowrocket 转换版 |
 
@@ -45,7 +45,7 @@ RULE-SET,https://raw.githubusercontent.com/fafatop/Rules_US/main/AppleAI.list,PR
 1. Apple Intelligence
 2. Apple：先 `Apple_PROXY`，再 `Apple_DIRECT`
 3. LAN
-4. 广告误杀修复：`DIRECT`、`PROXY`、`REJECT`
+4. 广告误杀修复：`DIRECT`、`PROXY`、`REJECT-DROP`
 5. AdvertisingLite
 6. 明确国内 App
 7. 修正版 GeositeCN
@@ -56,3 +56,4 @@ RULE-SET,https://raw.githubusercontent.com/fafatop/Rules_US/main/AppleAI.list,PR
 广告误杀修复必须放在 AdvertisingLite 前面；Apple Intelligence、Apple TV 和 Apple News 必须放在普通 Apple 规则前面。
 
 主配置 `Rules_US.conf` 暂不发布到本仓库。
+
